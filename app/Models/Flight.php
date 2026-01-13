@@ -24,4 +24,9 @@ class Flight extends Model
     {
         return $this->hasMany(FlightSegment::class);
     }
+
+    public function flightClassess()
+    {
+        return $this->hasMany(FlightClass::class);
+    }
 }
