@@ -17,4 +17,19 @@ class Transaction extends Model
         'total_amount',
         'status'
     ];
+
+    public function flight()
+    {
+        return $this->belongsTo(Flight::class);
+    }
+
+    public function class()
+    {
+        return $this->belongsTo(FlightClass::class);
+    }
+
+    public function promo()
+    {
+        return $this->belongsTo(PromoCode::class);
+    }
 }

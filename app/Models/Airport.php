@@ -18,11 +18,6 @@ class Airport extends Model
         'country'
     ];
 
-    public function flights()
-    {
-        return $this->hasMany(FlightSegment::class);
-    }
-
     public function segments()
     {
         return $this->hasMany(FlightSegment::class);

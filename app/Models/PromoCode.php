@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PromoCode extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class);
+    }
 }
