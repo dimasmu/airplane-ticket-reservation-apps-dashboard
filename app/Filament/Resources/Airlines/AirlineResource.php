@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\Airlines;
 
-use App\Filament\Resources\Airlines\Pages\CreateAirline;
-use App\Filament\Resources\Airlines\Pages\EditAirline;
 use App\Filament\Resources\Airlines\Pages\ListAirlines;
 use App\Filament\Resources\Airlines\Schemas\AirlineForm;
 use App\Filament\Resources\Airlines\Tables\AirlinesTable;
@@ -45,8 +43,6 @@ class AirlineResource extends Resource
     {
         return [
             'index' => ListAirlines::route('/'),
-            'create' => CreateAirline::route('/create'),
-            'edit' => EditAirline::route('/{record}/edit'),
         ];
     }
 
