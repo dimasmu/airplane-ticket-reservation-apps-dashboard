@@ -15,6 +15,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Log;
 
 class FlightResource extends Resource
 {
@@ -31,7 +32,10 @@ class FlightResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return FlightsTable::configure($table);
+        return FlightsTable::configure($table)
+            ->modifyQueryUsing(function (Builder $query) {
+                return $query->with(['segments.airport', 'airline']);
+            });
     }
 
     public static function getRelations(): array

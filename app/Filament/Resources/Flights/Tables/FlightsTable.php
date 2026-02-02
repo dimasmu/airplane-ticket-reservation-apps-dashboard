@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Flights\Tables;
 
+use App\Models\Flight;
+use DateTime;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -19,9 +21,9 @@ class FlightsTable
             ->columns([
                 TextColumn::make('flight_number')
                     ->searchable(),
-                TextColumn::make('airline_id')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('airline.name'),
+                TextColumn::make('route_duration')
+                    ->label('Route & Duration'),
                 TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
